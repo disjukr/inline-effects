@@ -1,0 +1,18 @@
+{
+  "name": "react-inline-effects",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "license": "(MIT OR Apache-2.0)",
+  "scripts": {},
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2"
+  }
+}
