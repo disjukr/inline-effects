@@ -1,9 +1,5 @@
-import { InlineEffects } from "react-inline-effects";
+import PageContainer from "./PageContainer";
 
 export default function Page() {
-  return (
-    <div>
-      <InlineEffects />
-    </div>
-  );
+  return <PageContainer />;
 }
