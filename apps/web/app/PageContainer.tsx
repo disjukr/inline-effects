@@ -4,8 +4,7 @@ import * as React from "react";
 import { InlineEffects, Letters } from "react-inline-effects";
 import {
   opacityTransformer,
-  randomizeOrder,
-  squareRangeSelector,
+  rampDownRangeSelector,
 } from "react-inline-effects/effects";
 
 export default function PageContainer() {
@@ -24,9 +23,7 @@ export default function PageContainer() {
       <InlineEffects
         effects={[
           {
-            selector: randomizeOrder(
-              squareRangeSelector({ start: 0, end: 1, offset: t - 1 }),
-            ),
+            selector: rampDownRangeSelector({ start: 0, end: 1, offset: t }),
             transformer: opacityTransformer(1, 0),
           },
         ]}
