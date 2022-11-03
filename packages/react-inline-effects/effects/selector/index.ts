@@ -1,7 +1,5 @@
-export * from "./rampDownRangeSelector";
-export { default as rampDownRangeSelector } from "./rampDownRangeSelector";
-export * from "./rampUpRangeSelector";
-export { default as rampUpRangeSelector } from "./rampUpRangeSelector";
+export * from "./rampRangeSelector";
+export { default as rampRangeSelector } from "./rampRangeSelector";
 export * from "./randomizeOrder";
 export { default as randomizeOrder } from "./randomizeOrder";
 export * from "./squareRangeSelector";

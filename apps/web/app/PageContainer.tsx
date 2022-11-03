@@ -4,7 +4,8 @@ import * as React from "react";
 import { InlineEffects, Letters } from "react-inline-effects";
 import {
   opacityTransformer,
-  rampDownRangeSelector,
+  rampDown,
+  rampRangeSelector,
 } from "react-inline-effects/effects";
 
 export default function PageContainer() {
@@ -23,8 +24,13 @@ export default function PageContainer() {
       <InlineEffects
         effects={[
           {
-            selector: rampDownRangeSelector({ start: 0, end: 1, offset: t }),
-            transformer: opacityTransformer(1, 0),
+            selector: rampRangeSelector({
+              start: 0,
+              end: 1,
+              offset: t,
+              fn: rampDown,
+            }),
+            transformer: opacityTransformer({ target: 1, default: 0 }),
           },
         ]}
       >

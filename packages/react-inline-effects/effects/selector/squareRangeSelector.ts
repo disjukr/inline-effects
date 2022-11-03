@@ -17,13 +17,13 @@ export default function squareRangeSelector(
     const one = 1 / length;
     const half = one / 2;
     return (index) => {
-      const t = index / length + half;
-      if (t <= s || t >= e) return 0;
+      const v = index / length + half;
+      if (v <= s || v >= e) return 0;
       const ss = s + half;
       const ee = e - half;
-      const vs = Math.min(invLerp(s, ss, t), 1);
-      const ve = Math.min(invLerp(e, ee, t), 1);
-      return Math.min(vs, ve);
+      const st = Math.min(invLerp(s, ss, v), 1);
+      const et = Math.min(invLerp(e, ee, v), 1);
+      return Math.min(st, et);
     };
   };
 }
