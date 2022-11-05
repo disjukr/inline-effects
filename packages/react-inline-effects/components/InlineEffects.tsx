@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Effect } from "../effects/type";
+import useInlineEffects from "../hooks/useInlineEffects";
 
 export interface InlineEffectsProps
   extends React.ComponentPropsWithRef<"span"> {
@@ -11,26 +12,7 @@ export interface InlineEffectsProps
 const InlineEffects: React.FC<InlineEffectsProps> = (
   { effects, children, ...props },
 ) => {
-  const ref = React.useRef<HTMLSpanElement>(null);
-  React.useEffect(() => {
-    const container = ref.current;
-    if (!container) return;
-    const elements = Array.from(container.children) as HTMLElement[];
-    const styles: Partial<CSSStyleDeclaration>[] = elements.map(() => ({}));
-    for (const element of elements) element.removeAttribute("style");
-    for (const { selector, transformer } of effects) {
-      const select = selector(elements);
-      const transform = transformer();
-      elements.forEach((element, index) => {
-        const style = styles[index];
-        const factor = select(index);
-        transform(element, style, factor);
-      });
-    }
-    elements.forEach((element, index) =>
-      Object.assign(element.style, styles[index])
-    );
-  }, [children, effects]);
+  const ref = useInlineEffects(effects, children);
   return (
     <span
       ref={ref}

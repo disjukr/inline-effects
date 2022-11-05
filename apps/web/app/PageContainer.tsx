@@ -1,12 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { InlineEffects, Letters } from "react-inline-effects";
 import {
+  InlineEffects,
+  Letters,
   opacityTransformer,
   rampDown,
   rampRangeSelector,
-} from "react-inline-effects/effects";
+} from "react-inline-effects";
 
 export default function PageContainer() {
   const [t, setT] = React.useState(0);
