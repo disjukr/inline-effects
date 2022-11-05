@@ -1,19 +1,30 @@
-import { Effect } from "./type";
+import { Effect, Item } from "./type";
 
-export default function apply(container: HTMLElement, effects: Effect[]): void {
+export interface ApplyConfig {
+  container: HTMLElement;
+  effects: Effect[];
+}
+export default function apply(config: ApplyConfig): void {
+  const { container, effects } = config;
   const elements = Array.from(container.children) as HTMLElement[];
-  const styles: Partial<CSSStyleDeclaration>[] = elements.map(() => ({}));
   for (const element of elements) element.removeAttribute("style");
+  const items: Item[] = elements.map((element) => ({
+    element,
+    box: {
+      x: element.offsetLeft,
+      y: element.offsetTop,
+      w: element.offsetWidth,
+      h: element.offsetHeight,
+    },
+    style: {},
+  }));
   for (const { selector, transformer } of effects) {
-    const select = selector(elements);
+    const select = selector(items);
     const transform = transformer();
-    elements.forEach((element, index) => {
-      const style = styles[index];
+    items.forEach((item, index) => {
       const factor = select(index);
-      transform(element, style, factor);
+      transform(item, factor);
     });
   }
-  elements.forEach((element, index) =>
-    Object.assign(element.style, styles[index])
-  );
+  for (const item of items) Object.assign(item.element.style, item.style);
 }

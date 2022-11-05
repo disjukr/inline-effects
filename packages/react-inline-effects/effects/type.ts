@@ -3,12 +3,20 @@ export interface Effect {
   transformer: Transformer;
 }
 
-export type Selector = (
-  elements: HTMLElement[],
-) => (index: number) => number /* returns factor. 0~1 */;
+// returns factor. 0~1
+export type Selector = (items: Item[]) => (index: number) => number;
 
-export type Transformer = () => (
-  element: HTMLElement,
-  style: Partial<CSSStyleDeclaration>,
-  factor: number,
-) => void;
+export type Transformer = () => (item: Item, factor: number) => void;
+
+export interface Item {
+  element: HTMLElement;
+  box: Box;
+  style: Partial<CSSStyleDeclaration>;
+}
+
+export interface Box {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}

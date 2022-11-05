@@ -10,7 +10,7 @@ export default function useInlineEffects(
   React.useEffect(() => {
     const container = ref.current;
     if (!container) return;
-    apply(container, effects);
+    apply({ container, effects });
   }, [effects, dep]);
   return ref;
 }
