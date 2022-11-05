@@ -23,6 +23,7 @@ export default function PageContainer() {
         style={{ width: "100%" }}
       />
       <InlineEffects
+        anchorPointGrouping="all"
         effects={[
           {
             selector: rampRangeSelector({

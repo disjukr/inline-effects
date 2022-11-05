@@ -1,16 +1,20 @@
 import * as React from "react";
-import { apply } from "../effects";
+import { AnchorPointGrouping, apply } from "../effects";
 import { Effect } from "../effects/type";
 
-export default function useInlineEffects(
-  effects: Effect[],
-  dep: any,
-): React.RefObject<HTMLElement> {
+export interface UseInlineEffectsConfig {
+  effects: Effect[];
+  anchorPointGrouping?: AnchorPointGrouping;
+}
+export default function useInlineEffects({
+  effects,
+  anchorPointGrouping,
+}: UseInlineEffectsConfig, deps: any[]): React.RefObject<HTMLElement> {
   const ref = React.useRef<HTMLElement>(null);
   React.useEffect(() => {
     const container = ref.current;
     if (!container) return;
-    apply({ container, effects });
-  }, [effects, dep]);
+    apply({ container, effects, anchorPointGrouping });
+  }, [effects, anchorPointGrouping, ...deps]);
   return ref;
 }
