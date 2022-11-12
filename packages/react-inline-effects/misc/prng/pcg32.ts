@@ -2,9 +2,11 @@ import {
   pcg32_advance,
   PCG32_INITIALIZER_STATE,
   pcg32_random,
+  pcg32_srandom,
   pcg32s_srandom,
   state,
-} from "@disjukr/pcg32";
+} from "./pcg32-nowasm";
+// } from "@disjukr/pcg32";
 
 export function reset(): void {
   state.value = PCG32_INITIALIZER_STATE.value;
@@ -12,6 +14,10 @@ export function reset(): void {
 
 export function srandom(seed: number): void {
   pcg32s_srandom(BigInt(seed));
+}
+
+export function srandom2(seed: number, seq: number): void {
+  pcg32_srandom(BigInt(seed), BigInt(seq));
 }
 
 // code from: https://github.com/alisey/pcg32/blob/e7848d27e1ebf60db5200d05585162a741944bf4/src/index.js#L29-L53
