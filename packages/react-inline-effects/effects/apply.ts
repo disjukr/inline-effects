@@ -3,11 +3,17 @@ import { Effect, Item } from "./type";
 export interface ApplyConfig {
   container: HTMLElement;
   effects: Effect[];
+  time?: number;
   anchorPointGrouping?: AnchorPointGrouping;
 }
 export type AnchorPointGrouping = "character" | "all";
 export default function apply(config: ApplyConfig): void {
-  const { container, effects, anchorPointGrouping = "character" } = config;
+  const {
+    container,
+    effects,
+    time = 0,
+    anchorPointGrouping = "character",
+  } = config;
   const elements = Array.from(container.children) as HTMLElement[];
   for (const element of elements) element.removeAttribute("style");
   const items: Item[] = elements.map((element) => ({
@@ -22,7 +28,7 @@ export default function apply(config: ApplyConfig): void {
   }));
   if (anchorPointGrouping === "all") handleAnchorPointGroupingAll(items);
   for (const { selector, transformer } of effects) {
-    const select = selector(items);
+    const select = selector(items, time);
     const transform = transformer();
     items.forEach((item, index) => {
       const factor = select(index);

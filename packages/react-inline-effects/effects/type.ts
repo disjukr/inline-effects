@@ -4,7 +4,10 @@ export interface Effect {
 }
 
 // returns factor. 0~1
-export type Selector = (items: Item[]) => (index: number) => number;
+export type Selector = (
+  items: Item[],
+  time: number,
+) => (index: number) => number;
 
 export type Transformer = () => (item: Item, factor: number) => void;
 
