@@ -9,6 +9,9 @@
     "react": "*",
     "react-dom": "*"
   },
+  "dependencies": {
+    "@disjukr/pcg32": "^0.0.2"
+  },
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
