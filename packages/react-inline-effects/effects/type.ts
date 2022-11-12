@@ -1,15 +1,19 @@
 export interface Effect {
-  selector: Selector;
+  selector?: Selector;
   transformer: Transformer;
 }
 
-// returns factor. 0~1
 export type Selector = (
   items: Item[],
   time: number,
-) => (index: number) => number;
+) => SelectFn;
 
-export type Transformer = () => (item: Item, factor: number) => void;
+// returns factor. 0~1
+export type SelectFn = (index: number) => number;
+
+export type Transformer = () => TransformFn;
+
+export type TransformFn = (item: Item, factor: number) => void;
 
 export interface Item {
   element: HTMLElement;

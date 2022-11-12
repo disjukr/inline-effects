@@ -1,3 +1,4 @@
+import selectAll from "./selector/selectAll";
 import { Effect, Item } from "./type";
 
 export interface ApplyConfig {
@@ -28,7 +29,7 @@ export default function apply(config: ApplyConfig): void {
   }));
   if (anchorPointGrouping === "all") handleAnchorPointGroupingAll(items);
   for (const { selector, transformer } of effects) {
-    const select = selector(items, time);
+    const select = selector ? selector(items, time) : selectAll;
     const transform = transformer();
     items.forEach((item, index) => {
       const factor = select(index);
