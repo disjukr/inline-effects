@@ -34,13 +34,13 @@ importers:
 
   packages/react-inline-effects:
     specifiers:
-      '@disjukr/pcg32': ^0.0.2
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       tsconfig: workspace:*
       typescript: ^4.5.2
+      unicode-default-word-boundary: ^13.0.0
     dependencies:
-      '@disjukr/pcg32': 0.0.2
+      unicode-default-word-boundary: 13.0.0
     devDependencies:
       '@types/react': 18.0.24
       '@types/react-dom': 18.0.8
@@ -251,10 +251,6 @@ packages:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
-    dev: false
-
-  /@disjukr/pcg32/0.0.2:
-    resolution: {integrity: sha512-X22/Z/bfsc9bRa7M0ojOxl0iWim61mDvXuW8aPlZupwBqi5heY5lkey+wCBjC/xJ7zc/vLHX02wpjWeQfMniDw==}
     dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -764,6 +760,10 @@ packages:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+
+  /unicode-default-word-boundary/13.0.0:
+    resolution: {integrity: sha512-rrprpnghnC/4tgfp9NhP6nEg+Ra0WAJJ2gOtELQE01zopVRYh/7esHOkq3ZdTaqsR/xl9RlsMbJY/+eyiQQYOQ==}
+    dev: false
 
   /update-browserslist-db/1.0.10_browserslist@4.21.4:
     resolution: {integrity: sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ==}

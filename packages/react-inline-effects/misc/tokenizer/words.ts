@@ -1,3 +1,3 @@
-export default function words(text: string): string[] {
-  return text.split(/\b/);
-}
+import { split } from "unicode-default-word-boundary";
+
+export default split;
