@@ -7,9 +7,9 @@ export default function blendSelector(
   b: Selector,
   blend: BlendFn = mul,
 ): Selector {
-  return function (items, time) {
-    const selectA = a(items, time);
-    const selectB = b(items, time);
+  return function (items) {
+    const selectA = a(items);
+    const selectB = b(items);
     return (index) => blend(selectA(index), selectB(index));
   };
 }

@@ -3,10 +3,7 @@ export interface Effect {
   transformer: Transformer;
 }
 
-export type Selector = (
-  items: Item[],
-  time: number,
-) => SelectFn;
+export type Selector = (items: Item[]) => SelectFn;
 
 // returns factor. 0~1
 export type SelectFn = (index: number) => number;
