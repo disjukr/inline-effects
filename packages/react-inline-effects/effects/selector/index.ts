@@ -8,3 +8,5 @@ export * from "./selectAll";
 export { default as selectAll } from "./selectAll";
 export * from "./squareRangeSelector";
 export { default as squareRangeSelector } from "./squareRangeSelector";
+export * from "./wigglySelector";
+export { default as wigglySelector } from "./wigglySelector";

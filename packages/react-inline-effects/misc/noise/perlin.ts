@@ -1,5 +1,6 @@
 import * as pcg8i from "../prng/pcg8i";
 
+// returns -1 ~ 1
 export type PerlinNoiseFn = (x: number, y: number, z: number) => number;
 
 /**
