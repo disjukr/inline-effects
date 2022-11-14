@@ -7,6 +7,7 @@ export interface WigglySelectorConfig {
   spatialPhase?: number;
   correlation?: number;
   seed?: number;
+  seq?: number;
 }
 export default function wigglySelector({
   frequency = 1,
@@ -14,13 +15,14 @@ export default function wigglySelector({
   spatialPhase = 0,
   correlation = 0,
   seed = 0,
+  seq = 0,
 }: WigglySelectorConfig): Selector {
-  const perlin = getPerlinNoiseFn(seed);
+  const perlin = getPerlinNoiseFn(seed, seq);
   const co = 1 - correlation;
   return () => (index) =>
     perlin(
       temporalPhase * frequency + 0.5,
       index * co + 0.5,
-      spatialPhase + 0.5,
+      spatialPhase * frequency + 0.5,
     );
 }

@@ -1,16 +1,25 @@
-import { Selector } from "../type";
+import { SelectFn, Selector } from "../type";
+import { selectAll } from "./ambientSelector";
 
 export type BlendFn = (a: number, b: number) => number;
 
-export default function blendSelector(
-  a: Selector,
-  b: Selector,
-  blend: BlendFn = mul,
-): Selector {
-  return function (items) {
-    const selectA = a(items);
-    const selectB = b(items);
-    return (index) => blend(selectA(index), selectB(index));
+export interface BlendSelectorConfig {
+  selectors: Selector[];
+  blend?: BlendFn;
+  identity?: SelectFn;
+}
+export default function blendSelector({
+  selectors,
+  blend = mul,
+  identity = selectAll,
+}: BlendSelectorConfig): Selector {
+  return (items) => {
+    const selectFns = selectors.map((selector) => selector(items));
+    return (index) =>
+      selectFns.reduce(
+        (prev, curr) => blend(prev, curr(index)),
+        identity(index),
+      );
   };
 }
 

@@ -6,10 +6,10 @@ export type PerlinNoiseFn = (x: number, y: number, z: number) => number;
 /**
  * @param seed `0` ~ `0xff`
  */
-export function getPerlinNoiseFn(seed: number): PerlinNoiseFn {
+export function getPerlinNoiseFn(seed: number, seq: number = 0): PerlinNoiseFn {
   const p: number[] = Array(512);
   const rng: pcg8i.pcg8i_random_t = { state: 0, inc: 0 };
-  pcg8i.pcg8si_srandom_r(rng, seed);
+  pcg8i.pcg8i_srandom_r(rng, seed, seq);
   for (let i = 0; i < 512; ++i) p[i] = pcg8i.pcg8i_random_r(rng);
   // https://mrl.cs.nyu.edu/~perlin/noise/
   return function perlin(x, y, z) {
