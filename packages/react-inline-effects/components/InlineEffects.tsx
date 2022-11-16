@@ -19,11 +19,6 @@ const InlineEffects: React.FC<InlineEffectsProps> = (
     <span
       ref={ref}
       data-inline-effects
-      style={{
-        position: "relative",
-        pointerEvents: "none",
-        whiteSpace: "pre-wrap",
-      }}
       {...props}
     >
       {children}

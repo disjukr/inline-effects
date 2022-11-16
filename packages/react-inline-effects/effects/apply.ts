@@ -23,7 +23,7 @@ export default function apply(config: ApplyConfig): void {
       w: element.offsetWidth,
       h: element.offsetHeight,
     },
-    style: {},
+    style: { transform: "" },
   }));
   if (anchorPointGrouping === "all") handleAnchorPointGroupingAll(items);
   for (const { selector, transformer } of effects) {

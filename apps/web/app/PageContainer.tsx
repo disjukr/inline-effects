@@ -21,6 +21,18 @@ export default function PageContainer() {
   }, [manual]);
   return (
     <div>
+      <style jsx>
+        {`
+          :global([data-inline-effects]) {
+            position: relative;
+            pointer-events: none;
+            white-space: pre-wrap;
+          }
+          :global([data-inline-effects] > *) {
+            display: inline-block;
+          }
+        `}
+      </style>
       <label>
         Text:{" "}
         <input
@@ -63,13 +75,6 @@ export default function PageContainer() {
         <InlineEffects
           anchorPointGrouping="all"
           effects={[
-            {
-              transformer: () => ({ style }) =>
-                Object.assign(style, {
-                  display: "inline-block",
-                  transform: "",
-                }),
-            },
             {
               selector: blendSelector({
                 selectors: [
