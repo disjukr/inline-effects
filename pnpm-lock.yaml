@@ -14,6 +14,7 @@ importers:
       '@types/node': ^17.0.12
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
+      inline-effects: workspace:*
       next: ^13.0.0
       react: 18.2.0
       react-dom: 18.2.0
@@ -25,6 +26,7 @@ importers:
       '@types/node': 17.0.45
       '@types/react': 18.0.24
       '@types/react-dom': 18.0.8
+      inline-effects: link:../../packages/inline-effects
       next: 13.0.0_qtpcxnaaarbm4ws7ughq6oxfve
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -32,14 +34,24 @@ importers:
       tsconfig: link:../../packages/tsconfig
       typescript: 4.8.4
 
+  packages/inline-effects:
+    specifiers:
+      tsconfig: workspace:*
+      typescript: ^4.5.2
+    devDependencies:
+      tsconfig: link:../tsconfig
+      typescript: 4.8.4
+
   packages/react-inline-effects:
     specifiers:
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
+      inline-effects: workspace:*
       tsconfig: workspace:*
       typescript: ^4.5.2
       unicode-default-word-boundary: ^13.0.0
     dependencies:
+      inline-effects: link:../inline-effects
       unicode-default-word-boundary: 13.0.0
     devDependencies:
       '@types/react': 18.0.24

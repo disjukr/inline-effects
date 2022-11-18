@@ -2,6 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "lib": ["dom", "es2020"],
+    "module": "esnext",
+    "target": "es2020",
     "composite": false,
     "declaration": true,
     "declarationMap": true,

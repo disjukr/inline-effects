@@ -1,5 +1,5 @@
 import * as React from "react";
-import words from "../misc/tokenizer/words";
+import { split } from "unicode-default-word-boundary";
 
 export interface WordsProps {
   children: string;
@@ -7,7 +7,7 @@ export interface WordsProps {
 const Words: React.FC<WordsProps> = ({ children }) => {
   return (
     <>
-      {words(children).map(
+      {split(children).map(
         (word, i) => <span key={i}>{word}</span>,
       )}
     </>

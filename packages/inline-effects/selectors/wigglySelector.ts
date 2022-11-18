@@ -1,4 +1,4 @@
-import { getPerlinNoiseFn } from "../../misc/noise/perlin";
+import { getPerlinNoiseFn } from "../misc/noise/perlin";
 import { Selector } from "../type";
 
 export interface WigglySelectorConfig {

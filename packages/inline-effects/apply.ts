@@ -1,4 +1,4 @@
-import { selectAll } from "./selector/ambientSelector";
+import { selectAll } from "./selectors/ambientSelector";
 import { Effect, Item } from "./type";
 
 export interface ApplyConfig {

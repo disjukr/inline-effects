@@ -1,5 +1,4 @@
 import * as React from "react";
-import letters from "../misc/tokenizer/letters";
 
 export interface LettersProps {
   children: string;
@@ -7,7 +6,7 @@ export interface LettersProps {
 const Letters: React.FC<LettersProps> = ({ children }) => {
   return (
     <>
-      {letters(children).map(
+      {children.split("").map(
         (letter, i) => <span key={i}>{letter}</span>,
       )}
     </>

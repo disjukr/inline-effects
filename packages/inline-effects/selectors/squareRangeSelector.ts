@@ -1,4 +1,4 @@
-import invLerp from "../../misc/math/invLerp";
+import invLerp from "../misc/math/invLerp";
 import { Selector } from "../type";
 
 export interface SquareRangeSelectorConfig {

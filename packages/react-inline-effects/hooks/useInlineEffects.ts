@@ -1,6 +1,6 @@
 import * as React from "react";
-import { AnchorPointGrouping, apply } from "../effects";
-import { Effect } from "../effects/type";
+import type { AnchorPointGrouping, Effect } from "inline-effects";
+import { apply } from "inline-effects";
 
 export interface UseInlineEffectsConfig {
   effects: Effect[];

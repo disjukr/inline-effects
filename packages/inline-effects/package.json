@@ -1,0 +1,12 @@
+{
+  "name": "inline-effects",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "license": "(MIT OR Apache-2.0)",
+  "scripts": {},
+  "devDependencies": {
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2"
+  }
+}

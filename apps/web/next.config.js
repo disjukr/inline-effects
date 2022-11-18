@@ -2,6 +2,9 @@ module.exports = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
-    transpilePackages: ["react-inline-effects"],
+    transpilePackages: [
+      "inline-effects",
+      "react-inline-effects",
+    ],
   },
 };

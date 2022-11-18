@@ -10,6 +10,7 @@
     "react-dom": "*"
   },
   "dependencies": {
+    "inline-effects": "workspace:*",
     "unicode-default-word-boundary": "^13.0.0"
   },
   "devDependencies": {

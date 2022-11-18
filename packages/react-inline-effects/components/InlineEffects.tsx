@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { AnchorPointGrouping } from "../effects";
-import { Effect } from "../effects/type";
+import type { AnchorPointGrouping, Effect } from "inline-effects";
 import useInlineEffects from "../hooks/useInlineEffects";
 
 export interface InlineEffectsProps

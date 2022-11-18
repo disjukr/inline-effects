@@ -4,11 +4,10 @@ import * as React from "react";
 import {
   ambientSelector,
   blendSelector,
-  InlineEffects,
-  Letters,
   squareRangeSelector,
   wigglySelector,
-} from "react-inline-effects";
+} from "inline-effects";
+import { InlineEffects, Letters } from "react-inline-effects";
 
 export default function PageContainer() {
   const [text, setText] = React.useState("Inline Effects");
