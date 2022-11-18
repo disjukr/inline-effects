@@ -9,9 +9,9 @@ export interface RampUpRangeSelectorConfig {
   offset?: number;
   fn?: RampFn;
 }
-export default function rampRangeSelector(
+export default function rampRangeSelector<T = any>(
   { start = 0, end = 1, offset = 0, fn = rampUp }: RampUpRangeSelectorConfig,
-): Selector {
+): Selector<T> {
   const s = start + offset;
   const e = end + offset;
   return ({ length }) => {

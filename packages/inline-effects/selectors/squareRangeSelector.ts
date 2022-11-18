@@ -6,9 +6,9 @@ export interface SquareRangeSelectorConfig {
   end?: number;
   offset?: number;
 }
-export default function squareRangeSelector(
+export default function squareRangeSelector<T = any>(
   { start = 0, end = 1, offset = 0 }: SquareRangeSelectorConfig,
-): Selector {
+): Selector<T> {
   const s = start + offset;
   const e = end + offset;
   const d = e - s;

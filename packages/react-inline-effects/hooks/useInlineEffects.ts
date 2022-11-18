@@ -1,9 +1,9 @@
 import * as React from "react";
-import type { AnchorPointGrouping, Effect } from "inline-effects";
-import { apply } from "inline-effects";
+import type { AnchorPointGrouping, DomItem, Effect } from "inline-effects";
+import { applyToDom } from "inline-effects";
 
 export interface UseInlineEffectsConfig {
-  effects: Effect[];
+  effects: Effect<DomItem>[];
   anchorPointGrouping?: AnchorPointGrouping;
 }
 export default function useInlineEffects({
@@ -14,7 +14,7 @@ export default function useInlineEffects({
   React.useEffect(() => {
     const container = ref.current;
     if (!container) return;
-    apply({ container, effects, anchorPointGrouping });
+    applyToDom({ container, effects, anchorPointGrouping });
   }, [effects, anchorPointGrouping, ...deps]);
   return ref;
 }

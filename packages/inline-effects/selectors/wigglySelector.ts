@@ -9,14 +9,14 @@ export interface WigglySelectorConfig {
   seed?: number;
   seq?: number;
 }
-export default function wigglySelector({
+export default function wigglySelector<T = any>({
   frequency = 1,
   temporalPhase = 0,
   spatialPhase = 0,
   correlation = 0,
   seed = 0,
   seq = 0,
-}: WigglySelectorConfig): Selector {
+}: WigglySelectorConfig): Selector<T> {
   const perlin = getPerlinNoiseFn(seed, seq);
   const co = 1 - correlation;
   return () => (index) =>

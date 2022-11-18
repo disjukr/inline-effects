@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
-import type { AnchorPointGrouping, Effect } from "inline-effects";
+import type { AnchorPointGrouping, DomItem, Effect } from "inline-effects";
 import useInlineEffects from "../hooks/useInlineEffects";
 
 export interface InlineEffectsProps
   extends React.ComponentPropsWithRef<"span"> {
-  effects: Effect[];
+  effects: Effect<DomItem>[];
   children: React.ReactElement | React.ReactElement[];
   anchorPointGrouping?: AnchorPointGrouping;
 }

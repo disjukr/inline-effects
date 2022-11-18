@@ -3,16 +3,16 @@ import { selectAll } from "./ambientSelector";
 
 export type BlendFn = (a: number, b: number) => number;
 
-export interface BlendSelectorConfig {
-  selectors: Selector[];
+export interface BlendSelectorConfig<T> {
+  selectors: Selector<T>[];
   blend?: BlendFn;
   identity?: SelectFn;
 }
-export default function blendSelector({
+export default function blendSelector<T>({
   selectors,
   blend = mul,
   identity = selectAll,
-}: BlendSelectorConfig): Selector {
+}: BlendSelectorConfig<T>): Selector<T> {
   return (items) => {
     const selectFns = selectors.map((selector) => selector(items));
     return (index) =>
