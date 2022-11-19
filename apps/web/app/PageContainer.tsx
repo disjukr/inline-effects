@@ -20,6 +20,7 @@ import GithubCorner from "react-github-corner";
 
 import Wiggly from "./example/Wiggly";
 import SmoothBounce from "./example/SmoothBounce";
+import Range from "./example/Range";
 import { ExampleComponent } from "./example/type";
 import { NumberInput } from "grommet-controls";
 import Link from "next/link";
@@ -50,6 +51,15 @@ const examples: Example[] = [
     tutorialLink: "https://www.youtube.com/watch?v=9xI9Yn6TE4A",
     sourceCodeUrl:
       "https://github.com/disjukr/inline-effects/blob/main/apps/web/app/example/SmoothBounce.tsx",
+  },
+  {
+    value: "range",
+    name: "How to use the range selector",
+    Component: Range,
+    duration: 2,
+    tutorialLink: "https://www.youtube.com/watch?v=78aT4j247rM",
+    sourceCodeUrl:
+      "https://github.com/disjukr/inline-effects/blob/main/apps/web/app/example/Range.tsx",
   },
 ];
 
