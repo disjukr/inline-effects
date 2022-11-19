@@ -8,21 +8,6 @@ import { InlineEffects, Letters } from "react-inline-effects";
 
 import { ExampleComponent } from "./type";
 
-function getSelector(t: number, seq: number) {
-  return blendSelector({
-    selectors: [
-      ambientSelector(1 - t),
-      squareRangeSelector({ start: 0, end: 1, offset: t }),
-      wigglySelector({
-        frequency: 10,
-        temporalPhase: t,
-        spatialPhase: t,
-        seq,
-      }),
-    ],
-  });
-}
-
 const Wiggly: ExampleComponent = ({ text, t }) => {
   return (
     <InlineEffects
@@ -60,3 +45,18 @@ const Wiggly: ExampleComponent = ({ text, t }) => {
   );
 };
 export default Wiggly;
+
+function getSelector(t: number, seq: number) {
+  return blendSelector({
+    selectors: [
+      ambientSelector(1 - t),
+      squareRangeSelector({ start: 0, end: 1, offset: t }),
+      wigglySelector({
+        frequency: 10,
+        temporalPhase: t,
+        spatialPhase: t,
+        seq,
+      }),
+    ],
+  });
+}
