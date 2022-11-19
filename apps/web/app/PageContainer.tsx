@@ -1,23 +1,25 @@
 "use client";
 
 import * as React from "react";
-import {
-  ambientSelector,
-  blendSelector,
-  squareRangeSelector,
-  wigglySelector,
-} from "inline-effects";
-import { InlineEffects, Letters } from "react-inline-effects";
+import Wiggly from "./example/Wiggly";
+
+function getT(now: number, duration: number, rest: number): number {
+  return (now % (duration + rest)) / duration;
+}
 
 export default function PageContainer() {
   const [text, setText] = React.useState("Inline Effects");
   const [t, setT] = React.useState(0);
+  const [duration, setDuration] = React.useState(3);
   const [manual, setManual] = React.useState(false);
   React.useEffect(() => {
     if (manual) return;
-    const id = setInterval(() => setT((performance.now() / 2000) % 1.3), 10);
+    const id = setInterval(
+      () => setT(getT(performance.now(), duration * 1000, 600)),
+      10,
+    );
     return () => clearInterval(id);
-  }, [manual]);
+  }, [manual, duration]);
   return (
     <div>
       <style jsx>
@@ -54,6 +56,17 @@ export default function PageContainer() {
       </label>
       <br />
       <label>
+        Duration:{" "}
+        <input
+          type="number"
+          min="1"
+          max="60"
+          value={duration}
+          onChange={(e) => setDuration(Number(e.target.value))}
+        />s
+      </label>
+      <br />
+      <label>
         Manual:{" "}
         <input
           type="checkbox"
@@ -71,93 +84,7 @@ export default function PageContainer() {
           overflow: "hidden",
         }}
       >
-        <InlineEffects
-          anchorPointGrouping="all"
-          effects={[
-            {
-              selector: blendSelector({
-                selectors: [
-                  ambientSelector(1 - t),
-                  squareRangeSelector({ start: 0, end: 1, offset: t }),
-                  wigglySelector({
-                    frequency: 10,
-                    temporalPhase: t,
-                    spatialPhase: t,
-                    seq: 0,
-                  }),
-                ],
-              }),
-              transformer: () => ({ style }, factor) =>
-                style.transform += `translateX(${(factor * 800).toFixed(2)}%)`,
-            },
-            {
-              selector: blendSelector({
-                selectors: [
-                  ambientSelector(1 - t),
-                  squareRangeSelector({ start: 0, end: 1, offset: t }),
-                  wigglySelector({
-                    frequency: 10,
-                    temporalPhase: t,
-                    spatialPhase: t,
-                    seq: 1,
-                  }),
-                ],
-              }),
-              transformer: () => ({ style }, factor) =>
-                style.transform += `translateY(${(factor * 200).toFixed(2)}%)`,
-            },
-            {
-              selector: blendSelector({
-                selectors: [
-                  ambientSelector(1 - t),
-                  squareRangeSelector({ start: 0, end: 1, offset: t }),
-                  wigglySelector({
-                    frequency: 10,
-                    temporalPhase: t,
-                    spatialPhase: t,
-                    seq: 2,
-                  }),
-                ],
-              }),
-              transformer: () => ({ style }, factor) =>
-                style.transform += `rotateX(${(factor * 180).toFixed(2)}deg)`,
-            },
-            {
-              selector: blendSelector({
-                selectors: [
-                  ambientSelector(1 - t),
-                  squareRangeSelector({ start: 0, end: 1, offset: t }),
-                  wigglySelector({
-                    frequency: 10,
-                    temporalPhase: t,
-                    spatialPhase: t,
-                    seq: 3,
-                  }),
-                ],
-              }),
-              transformer: () => ({ style }, factor) =>
-                style.transform += `rotateY(${(factor * 180).toFixed(2)}deg)`,
-            },
-            {
-              selector: blendSelector({
-                selectors: [
-                  ambientSelector(1 - t),
-                  squareRangeSelector({ start: 0, end: 1, offset: t }),
-                  wigglySelector({
-                    frequency: 10,
-                    temporalPhase: t,
-                    spatialPhase: t,
-                    seq: 4,
-                  }),
-                ],
-              }),
-              transformer: () => ({ style }, factor) =>
-                style.transform += `rotateZ(${(factor * 180).toFixed(2)}deg)`,
-            },
-          ]}
-        >
-          <Letters>{text}</Letters>
-        </InlineEffects>
+        <Wiggly text={text} t={t} />
       </div>
     </div>
   );
