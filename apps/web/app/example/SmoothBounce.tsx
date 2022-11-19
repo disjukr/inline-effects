@@ -18,7 +18,7 @@ const SmoothBounce: ExampleComponent = ({ text, t }) => {
             return a * (s / e / w);
           },
           transformer: () => ({ style }, factor) => {
-            const t = (factor * 100) | 0;
+            const t = (factor * 200) | 0;
             const s = String(1 - factor);
             const r = factor * 60;
             style.transform = `translateY(${t}%) scaleY(${s}) rotate(${r}deg)`;

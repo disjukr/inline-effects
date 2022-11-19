@@ -15,11 +15,14 @@ import {
   Select,
   TextInput,
 } from "grommet";
+import { Github, Youtube } from "grommet-icons";
+import GithubCorner from "react-github-corner";
 
 import Wiggly from "./example/Wiggly";
 import SmoothBounce from "./example/SmoothBounce";
 import { ExampleComponent } from "./example/type";
 import { NumberInput } from "grommet-controls";
+import Link from "next/link";
 
 interface Example {
   value: string;
@@ -37,7 +40,7 @@ const examples: Example[] = [
     duration: 3,
     tutorialLink: "https://www.youtube.com/watch?v=nN_J1_dlYh4",
     sourceCodeUrl:
-      "https://raw.githubusercontent.com/disjukr/inline-effects/main/apps/web/app/example/Wiggly.tsx",
+      "https://github.com/disjukr/inline-effects/blob/main/apps/web/app/example/Wiggly.tsx",
   },
   {
     value: "smooth-bounce",
@@ -46,7 +49,7 @@ const examples: Example[] = [
     duration: 1,
     tutorialLink: "https://www.youtube.com/watch?v=9xI9Yn6TE4A",
     sourceCodeUrl:
-      "https://raw.githubusercontent.com/disjukr/inline-effects/main/apps/web/app/example/SmoothBounce.tsx",
+      "https://github.com/disjukr/inline-effects/blob/main/apps/web/app/example/SmoothBounce.tsx",
   },
 ];
 
@@ -58,6 +61,8 @@ export default function PageContainer() {
     setExampleValue,
     duration: exampleDuration,
     Component,
+    sourceCodeUrl,
+    tutorialLink,
   } = useExamples();
   const {
     t,
@@ -69,6 +74,10 @@ export default function PageContainer() {
   } = useT(exampleDuration);
   return (
     <Grommet>
+      <GithubCorner
+        href="https://github.com/disjukr/inline-effects"
+        target="_blank"
+      />
       <Header background="brand">
         <Page kind="narrow">
           <PageContent>
@@ -103,6 +112,14 @@ export default function PageContainer() {
                 onChange={(e) => setExampleValue(e.target.value)}
               />
             </FormField>
+            <Box style={{ flexDirection: "row", gap: "1em" }}>
+              <Link href={tutorialLink} target="_blank">
+                <Youtube size="large" color="#cd201f" />
+              </Link>
+              <Link href={sourceCodeUrl} target="_blank">
+                <Github size="large" color="#333" />
+              </Link>
+            </Box>
             <FormField label="Text">
               <TextInput
                 value={text}
@@ -130,6 +147,7 @@ export default function PageContainer() {
               />
             </FormField>
           </Form>
+          <Box style={{ height: "50vh" }} />
         </PageContent>
       </Page>
     </Grommet>

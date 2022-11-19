@@ -22,6 +22,7 @@ importers:
       next: ^13.0.0
       react: 18.2.0
       react-dom: 18.2.0
+      react-github-corner: ^2.5.0
       react-inline-effects: workspace:*
       react-is: ^18.2.0
       styled-components: ^5.3.6
@@ -40,6 +41,7 @@ importers:
       next: 13.0.0_qtpcxnaaarbm4ws7ughq6oxfve
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-github-corner: 2.5.0_react@18.2.0
       react-inline-effects: link:../../packages/react-inline-effects
       react-is: 18.2.0
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
@@ -872,6 +874,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-github-corner/2.5.0_react@18.2.0:
+    resolution: {integrity: sha512-ofds9l6n61LJc6ML+jSE6W9ZSQvATcMR9evnHPXua1oDYj289HKODnVqFUB/g2a4ieBjDHw416iHP3MjqnU76Q==}
+    engines: {node: '>= 4.0.0'}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:
