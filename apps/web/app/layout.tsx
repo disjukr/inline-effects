@@ -1,3 +1,5 @@
+import "./style.css";
+
 export interface LayoutProps {
   children: React.ReactNode;
 }

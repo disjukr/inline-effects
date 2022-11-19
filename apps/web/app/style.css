@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+
+[data-inline-effects] {
+  position: relative;
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+
+[data-inline-effects] > * {
+  display: inline-block;
+}
