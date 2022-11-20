@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
+import GithubCorner from "react-github-corner";
 import {
   Box,
   CheckBox,
@@ -16,14 +18,12 @@ import {
   TextInput,
 } from "grommet";
 import { Github, Youtube } from "grommet-icons";
-import GithubCorner from "react-github-corner";
+import { NumberInput } from "grommet-controls";
 
 import Wiggly from "./example/Wiggly";
 import SmoothBounce from "./example/SmoothBounce";
 import Range from "./example/Range";
 import { ExampleComponent } from "./example/type";
-import { NumberInput } from "grommet-controls";
-import Link from "next/link";
 
 interface Example {
   value: string;
